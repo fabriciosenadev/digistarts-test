@@ -1,0 +1,67 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Operações com binários</h4>
+                        <p class="card-category"> o valor em binário e a operação que deja fazer</p>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="row">
+                                <div class="col-md">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Primeiro binário" type="text"
+                                            [(ngModel)]="firstBinary" name="firstBinary">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>seleciona a operação</mat-label>
+                                        <mat-select [(ngModel)]="operation" name="operation">
+                                            <mat-option *ngFor="let operation of operations"
+                                                [(value)]="operation.value">
+                                                {{ operation.text }}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="segundo binário" type="text"
+                                            [(ngModel)]="secondBinary" name="secondBinary">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <button mat-raised-button type="submit" class="btn btn-danger pull-left"
+                                (click)="submitData()">
+                                Calcular
+                            </button>
+                            <div class="clearfix"></div>
+                        </form>
+
+                        <hr>
+
+                        <div class="text-center">
+                            <span *ngIf="resultBinary === undefined">
+                                <h4 class="card-title ">Ops!</h4>
+                                <p class="card-category">
+                                    Não recebemos nada ainda, verifique os dados informados
+                                </p>
+                            </span>
+                            <span *ngIf="resultBinary !== undefined">
+                                <h4 class="card-title ">Resultado</h4>
+                                <p class="card-category">
+                                    Este é o resultado em valor binário: {{ resultBinary }}
+                                </p>
+                            </span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
